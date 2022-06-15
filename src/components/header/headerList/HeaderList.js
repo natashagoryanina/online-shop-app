@@ -1,6 +1,6 @@
 import React from 'react'
 import data from '../../../data';
-import { HeaderListContainer } from './HeaderListContainer';
+import { HeaderListContainer } from './HeaderListStyled';
 
 const HeaderList = () => {
     return (

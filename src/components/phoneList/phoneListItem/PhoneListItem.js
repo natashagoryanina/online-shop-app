@@ -12,7 +12,7 @@ const PhoneListItem = ({phone}) => {
                 ))}
             </ul>
             <p>
-                Цена: <span>{phone.price}</span>
+                Price: <span>{phone.price}</span>
             </p>
         </li>
     );

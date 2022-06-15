@@ -7,6 +7,7 @@ export const HeaderListContainer = styled.nav`
         justify-content: center;
 
         &_item {
+            color: #f5f5f7;
             &:not(:last-child) {
                 margin-right: 20px;
             }
