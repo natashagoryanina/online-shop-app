@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import data from '../../data';
+import CartList from '../cartList/CartList';
+import LaptopList from '../laptopList/LaptopList';
 import PhoneList from '../phoneList/PhoneList';
 
 const initialState = {
@@ -31,7 +33,9 @@ const Main = () => {
 
     return (
         <main>
+            <CartList cart={cart.cart} removeFromCart={removeFromCartById}/>
             <PhoneList phones={data.phones} addToCart={addToCart}/>
+            <LaptopList laptops={data.laptops} addToCart={addToCart}/>
         </main>
     );
 };
