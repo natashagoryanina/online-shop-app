@@ -12,21 +12,19 @@ const CartList = ({cart, removeFromCart}) => {
     };
 
     return (
-        <Section title="Cart">
-            <div>
-                <ul>
-                    {cart.map(item => 
-                        <CartListItem 
-                            key={item.id}
-                            product={item} 
-                            removeFromCart={removeFromCart}
-                        />
-                    )}
-                </ul>
-                <hr/>
-                <span>Total Price: {getTotalPrice()}</span>
-            </div>
-        </Section>
+        <div>
+            <ul>
+                {cart.map(item => 
+                    <CartListItem 
+                    key={item.id}
+                    product={item} 
+                    removeFromCart={removeFromCart}
+                    />
+                )}
+            </ul>
+            <hr/>
+            <span>Total Price: {getTotalPrice()}</span>
+        </div>
     );
 };
 

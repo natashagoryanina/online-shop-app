@@ -3,7 +3,7 @@ import React from 'react'
 const Section = ({title, children}) => {
     return (
         <section>
-            <h2>{title.toUpperCase()}</h2>
+            <h4>{title.toUpperCase()}</h4>
             {children}
         </section>
     );

@@ -4,17 +4,15 @@ import LaptopListItem from './laptopListItem/LaptopListItem';
 
 const LaptopList = ({laptops, addToCart}) => {
     return (
-        <Section title="Laptops">
-            <ul>
-                {laptops.map((laptop) => (
-                    <LaptopListItem 
-                        laptop={laptop} 
-                        key={laptop.id}
-                        addToCart={addToCart}
-                    />
-                ))}
-            </ul>
-        </Section>
+        <ul>
+            {laptops.map((laptop) => (
+                <LaptopListItem 
+                    laptop={laptop} 
+                    key={laptop.id}
+                    addToCart={addToCart}
+                />
+            ))}
+        </ul>
     );
 };
 
