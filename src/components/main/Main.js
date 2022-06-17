@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import data from '../../data';
+import React, { useEffect, useState } from 'react';
+import { createNewAdv, getProductsByCategory } from '../../services/api';
 import AdminForm from '../admin/AdminForm';
 import CartList from '../cartList/CartList';
 import LaptopList from '../laptopList/LaptopList';
@@ -11,14 +11,22 @@ const cartState = {
 };
 
 const productsState = {
-    phones:[...data.phones],
-    laptops: [...data.laptops]
+    phones:[],
+    laptops: []
 };
 
 const Main = () => {
     const [cart, setCart] = useState(cartState);
     const [products, setProducts] = useState(productsState);
 
+    useEffect(() => {
+        getProductsByCategory('phones').then(phones => 
+            phones && setProducts((prev) => ({...prev, phones})));
+        getProductsByCategory('laptops').then(laptops => 
+            laptops && setProducts((prev) => ({...prev, laptops})));
+    }, [])
+
+    // cart operations
     const addToCart = (product) => {
         setCart((prev) => ({
             cart: [...prev.cart, product]
@@ -35,11 +43,17 @@ const Main = () => {
         setCart((prev) => ({cart:[]}))
     };
 
-    const addProduct = (product) => {
-        setProducts((prev) => ({
-            ...prev,
-            [product.category]: [...prev[product.category], product],
-        }));
+    // admin add product
+    const addProduct = async (product) => {
+        try {
+            const id = await createNewAdv(product);
+            setProducts((prev) => ({
+                ...prev,
+                [product.category]: [...prev[product.category], {...product, id}],
+            }));
+        } catch (error) {
+            
+        }
     };
 
     return (

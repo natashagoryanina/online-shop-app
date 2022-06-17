@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 const categories = ["phones", "laptops"];
 
@@ -47,7 +46,7 @@ const AdminForm = ({addProduct}) => {
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
-        addProduct({...admForm, price: Number(admForm.price), id:uuidv4()});
+        addProduct({...admForm, price: Number(admForm.price)});
     };
 
     return (
