@@ -48,7 +48,11 @@ const Main = () => {
                 <AdminForm addProduct={addProduct}/>
             </Section>
             <Section title="Cart">
-                <CartList cart={cart.cart} removeFromCart={removeFromCartById}/>
+                <CartList 
+                    cart={cart.cart} 
+                    removeFromCart={removeFromCartById}
+                    removeAllFromCart={removeAllFromCart}
+                />
             </Section>
             <Section title="Phones">
                 <PhoneList phones={products.phones} addToCart={addToCart}/>

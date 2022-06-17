@@ -2,7 +2,7 @@ import React from 'react';
 import Section from '../Section';
 import CartListItem from './cartListItem/CartListItem';
 
-const CartList = ({cart, removeFromCart}) => {
+const CartList = ({cart, removeFromCart, removeAllFromCart}) => {
 
     const getTotalPrice = () => {
         return cart.reduce((acc, item) => {
@@ -24,6 +24,7 @@ const CartList = ({cart, removeFromCart}) => {
             </ul>
             <hr/>
             <span>Total Price: {getTotalPrice()}</span>
+            <button type="button" onClick={removeAllFromCart}>Make an order</button>
         </div>
     );
 };

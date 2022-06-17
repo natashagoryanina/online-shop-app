@@ -1,17 +1,17 @@
 import styled from "styled-components";
 //slt
 export const HeaderContainer = styled.header`
+    padding: 0 40px;
     display: flex;
+    justify-content: flex-end;
+
     height: 60px;
     background-color: #1d1d1f;
-    padding: 0 40px;
-    justify-content: space-between;
-    align-items: center;
 
     .header-logo {
-        text-decoration: none;
-        font-weight: 700;
-
+        display: flex;
+        align-items: center;
+        
         &_icon {
             width: 50px;
             height: 40px;
