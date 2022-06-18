@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const HeaderListContainer = styled.nav`
+    display: flex;
+    flex-direction: row;
     .header-list {
         display: flex;
         flex-direction: row;

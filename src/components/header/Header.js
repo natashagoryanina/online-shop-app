@@ -4,6 +4,7 @@ import sprite from '../../icons/header/sprite.svg';
 import { HeaderContainer } from './HeaderStyled';
 import Modal from '../modal/Modal';
 import data from '../../data';
+import LanguageSwitcher from '../languageSwitcher/LanguageSwitcher';
 
 const headerState = {
     width: window.innerWidth,
@@ -56,6 +57,7 @@ const Header = () => {
             {(header.isModalOpen && header.width < 768) &&
                 <Modal closeModal={toggleModal}>
                     <HeaderList data={data}/>
+                    <LanguageSwitcher/>
                 </Modal>
             }
         </HeaderContainer>
