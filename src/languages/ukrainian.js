@@ -10,7 +10,7 @@ const Ukrainian = {
     },
     section: {
         admin: "Додати новий девайс",
-        cart: "Корзина",
+        cart: "Кошик",
         phones: "Телефони",
         laptops: "Ноутбуки"
     },

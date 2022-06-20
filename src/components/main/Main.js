@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router';
+import AdminPage from '../../pages/AdminPage';
+import AuthPage from '../../pages/AuthPage';
+import CartPage from '../../pages/CartPage';
+import HomePage from '../../pages/HomePage';
+import ProductsPage from '../../pages/ProductsPage';
 import { createNewAdv, getProductsByCategory } from '../../services/api';
-import AdminForm from '../admin/AdminForm';
-import { LanguageContext } from '../App';
-import CartList from '../cartList/CartList';
-import LaptopList from '../laptopList/LaptopList';
-import PhoneList from '../phoneList/PhoneList';
-import Section from '../Section';
 
 const cartState = {
     cart: [],
@@ -26,8 +26,6 @@ const Main = () => {
         getProductsByCategory('laptops').then(laptops => 
             laptops && setProducts((prev) => ({...prev, laptops})));
     }, [])
-
-    const { language } = useContext(LanguageContext);
 
     // cart operations
     const addToCart = (product) => {
@@ -61,22 +59,30 @@ const Main = () => {
 
     return (
         <main>
-            <Section title={language.section.admin}>
-                <AdminForm addProduct={addProduct}/>
-            </Section>
-            <Section title={language.section.cart}>
-                <CartList 
-                    cart={cart.cart} 
-                    removeFromCart={removeFromCartById}
-                    removeAllFromCart={removeAllFromCart}
+            <Routes>
+                <Route path='/' element={<HomePage/>} exact/>
+                <Route 
+                    path='/products' 
+                    element={<ProductsPage 
+                        products={products}
+                        addToCart={addToCart}
+                    />}
                 />
-            </Section>
-            <Section title={language.section.phones}>
-                <PhoneList phones={products.phones} addToCart={addToCart}/>
-            </Section>
-            <Section title={language.section.laptops}>
-                <LaptopList laptops={products.laptops} addToCart={addToCart}/>
-            </Section>
+                <Route 
+                    path='/cart'
+                    element={<CartPage
+                        cart={cart}
+                        removeFromCartById={removeFromCartById}
+                        removeAllFromCart={removeAllFromCart}
+                    />}
+                />
+                <Route
+                    path='/admin'
+                    element={<AdminPage addProduct={addProduct}/>}
+                />
+                <Route path='/registration' element={<AuthPage/>}/>
+                <Route path='/login' element={<AuthPage/>}/>
+            </Routes>
         </main>
     );
 };

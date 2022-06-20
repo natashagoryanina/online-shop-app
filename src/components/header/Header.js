@@ -3,7 +3,6 @@ import HeaderList from './headerList/HeaderList';
 import sprite from '../../icons/header/sprite.svg';
 import { HeaderContainer } from './HeaderStyled';
 import Modal from '../modal/Modal';
-import data from '../../data';
 
 const headerState = {
     width: window.innerWidth,
@@ -46,7 +45,7 @@ const Header = () => {
     return (
         <HeaderContainer>
             {header.breakPoint < header.width ? 
-                <HeaderList data={data}/> :
+                <HeaderList/> :
                 <div className='header-menu'>
                     <svg className='header-menu_icon' onClick={toggleModal}>
                         <use href={sprite + '#icon-menu'}/>
@@ -55,7 +54,7 @@ const Header = () => {
             }
             {(header.isModalOpen && header.width < 768) &&
                 <Modal closeModal={toggleModal}>
-                    <HeaderList data={data}/>
+                    <HeaderList/>
                 </Modal>
             }
         </HeaderContainer>

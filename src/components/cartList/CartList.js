@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../App';
-import Section from '../Section';
 import CartListItem from './cartListItem/CartListItem';
 
 const CartList = ({cart, removeFromCart, removeAllFromCart}) => {

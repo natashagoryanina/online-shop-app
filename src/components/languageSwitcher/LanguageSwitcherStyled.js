@@ -35,7 +35,8 @@ export const LanguageSwitcherContainer = styled.div`
         .select-lang {
             margin-left: 4px;
             :hover {
-                color: #7375f3;
+                /* color: #7375f3; */
+                color: #6062f3;
             }
         }
     }

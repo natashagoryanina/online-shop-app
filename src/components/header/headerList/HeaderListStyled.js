@@ -8,8 +8,17 @@ export const HeaderListContainer = styled.div`
         display: flex;
 
         &_item {
-            color: #f5f5f7;
             cursor: pointer;
+        }
+
+        &_link {
+            text-decoration: none;
+            color: #f5f5f7;
+
+            &-active {
+                text-decoration: none;
+                color: #9e9ffc;
+            }
         }
     }
 
@@ -22,23 +31,13 @@ export const HeaderListContainer = styled.div`
                 &:not(:last-child) {
                     margin-right: 20px;
                 }
-                :hover {
-                    color: #7375f3;
-                }
             }
 
-            /* &_link {
-                text-decoration: none;
-                text-transform: uppercase;
-                color: #00008b;
+            &_link {
                 &:hover {
-                    color: #ffffff;
+                    color: #6062f3;
                 }
             }
-
-            &_link-active {
-                color: #fff;
-            } */
         }
     }
 
@@ -52,29 +51,17 @@ export const HeaderListContainer = styled.div`
 
             &_item {
                 font-size: 20px;
+
                 &:not(:last-child) {
                     margin-bottom: 20px;
                 }
-                :hover {
+            }
+
+            &_link {
+                &:hover {
                     color: #3538f1;
                 }
             }
-
-            /* &_link {
-                text-decoration: none;
-                text-transform: uppercase;
-                color: #00008b;
-                font-weight: 700;
-                font-size: 25px;
-                &:hover{
-                    //color: #f50404;
-                    color: #0026ff;
-                }
-            }
-
-            &_link-active {
-                color: #fff;
-            } */
         }
     }
 `;
