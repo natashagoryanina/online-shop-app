@@ -1,25 +1,29 @@
 import styled from 'styled-components';
 
-export const HeaderListContainer = styled.nav`
+export const HeaderListContainer = styled.div`
     display: flex;
-    flex-direction: row;
+    align-items: center;
+
     .header-list {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
 
         &_item {
             color: #f5f5f7;
+            cursor: pointer;
         }
     }
 
     @media (min-width: 768px) {
-        margin: auto;
 
         .header-list {
+            align-items: center;
+
             &_item {
                 &:not(:last-child) {
                     margin-right: 20px;
+                }
+                :hover {
+                    color: #7375f3;
                 }
             }
 
@@ -39,15 +43,20 @@ export const HeaderListContainer = styled.nav`
     }
 
     @media (min-width: 350px) and (max-width: 767px) {
-        background-color: none;
+      
+        flex-direction: column;
         
         .header-list {
             flex-direction: column;
             align-items: center;
 
             &_item {
+                font-size: 20px;
                 &:not(:last-child) {
                     margin-bottom: 20px;
+                }
+                :hover {
+                    color: #3538f1;
                 }
             }
 

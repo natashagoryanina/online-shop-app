@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../App';
 import Section from '../Section';
 import CartListItem from './cartListItem/CartListItem';
 
 const CartList = ({cart, removeFromCart, removeAllFromCart}) => {
+    const { language } = useContext(LanguageContext);
 
     const getTotalPrice = () => {
         return cart.reduce((acc, item) => {
@@ -23,8 +25,8 @@ const CartList = ({cart, removeFromCart, removeAllFromCart}) => {
                 )}
             </ul>
             <hr/>
-            <span>Total Price: {getTotalPrice()}</span>
-            <button type="button" onClick={removeAllFromCart}>Make an order</button>
+            <span>{language.cart.totalPrice}: {getTotalPrice()}</span>
+            <button type="button" onClick={removeAllFromCart}>{language.cart.makeOrder}</button>
         </div>
     );
 };

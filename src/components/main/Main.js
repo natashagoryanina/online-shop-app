@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { createNewAdv, getProductsByCategory } from '../../services/api';
 import AdminForm from '../admin/AdminForm';
+import { LanguageContext } from '../App';
 import CartList from '../cartList/CartList';
 import LaptopList from '../laptopList/LaptopList';
 import PhoneList from '../phoneList/PhoneList';
@@ -25,6 +26,8 @@ const Main = () => {
         getProductsByCategory('laptops').then(laptops => 
             laptops && setProducts((prev) => ({...prev, laptops})));
     }, [])
+
+    const { language } = useContext(LanguageContext);
 
     // cart operations
     const addToCart = (product) => {
@@ -58,20 +61,20 @@ const Main = () => {
 
     return (
         <main>
-            <Section title="Add new product">
+            <Section title={language.section.admin}>
                 <AdminForm addProduct={addProduct}/>
             </Section>
-            <Section title="Cart">
+            <Section title={language.section.cart}>
                 <CartList 
                     cart={cart.cart} 
                     removeFromCart={removeFromCartById}
                     removeAllFromCart={removeAllFromCart}
                 />
             </Section>
-            <Section title="Phones">
+            <Section title={language.section.phones}>
                 <PhoneList phones={products.phones} addToCart={addToCart}/>
             </Section>
-            <Section title="Laptops">
+            <Section title={language.section.laptops}>
                 <LaptopList laptops={products.laptops} addToCart={addToCart}/>
             </Section>
         </main>

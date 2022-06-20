@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from '../../App';
 
 const LaptopListItem = ({laptop, addToCart}) => {
+    const { language } = useContext(LanguageContext);
 
     const addProduct = () => {
         addToCart(laptop)
@@ -12,13 +14,13 @@ const LaptopListItem = ({laptop, addToCart}) => {
             <img src={laptop.image} alt={laptop.name} />
             <p>{laptop.description}</p>
             <p>
-                Price: <span>{laptop.price}</span>
+                {language.productItem.price}: <span>{laptop.price}</span>
             </p>
             <button 
                 type="button"
                 onClick={addProduct}
             >
-                Add to Cart
+                {language.productItem.addToCart}
             </button>
         </li>
     );

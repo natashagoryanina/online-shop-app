@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import LanguageHook from '../../hooks/LanguageHook';
 import { LanguageContext } from '../App';
-
+import { LanguageSwitcherContainer } from './LanguageSwitcherStyled';
+import sprite from '../../icons/header/sprite.svg';
 const LanguageSwitcher = () => {
-    //const [, setLanguage, languageList] = LanguageHook();
     const {setCurrentLang, languagesList} = useContext(LanguageContext)
 
     const onHandleChange = (e) => {
@@ -11,13 +10,20 @@ const LanguageSwitcher = () => {
     };
 
     return (
-        <select onChange={onHandleChange}>
-            {languagesList.map((language) => (
-                <option value={language} key={language}>
-                    {language}
-                </option>
-            ))}
-        </select>
+        <LanguageSwitcherContainer>
+            <div className='switch-lang'>
+                <svg className='switch-lang_icon'>
+                    <use href={sprite + '#icon-sphere'}/>
+                </svg>
+            </div>
+            <select className='select-lang' onChange={onHandleChange}>
+                {languagesList.map((language) => (
+                    <option value={language} key={language}>
+                        {language}
+                    </option>
+                ))}
+            </select>
+        </LanguageSwitcherContainer>
     );
 };
 

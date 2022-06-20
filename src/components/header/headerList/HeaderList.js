@@ -8,13 +8,15 @@ const HeaderList = ({data}) => {
 
     return (
         <HeaderListContainer>
-             <ul className='header-list'>
-                {data.header.map((item) => (
-                    <li className='header-list_item'key={item}>
-                        {language.navigation[item]}
-                    </li>
-                ))}
-            </ul>
+            <nav className='header-nav'>
+                <ul className='header-list'>
+                    {data.header.map((item) => (
+                        <li className='header-list_item' key={item}>
+                            {language.navigation[item]}
+                        </li>
+                    ))}
+                </ul>
+            </nav>
             <LanguageSwitcher/>
         </HeaderListContainer>
     );

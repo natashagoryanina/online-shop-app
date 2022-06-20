@@ -1,9 +1,9 @@
-import ukrainian from "./ukrainian";
-import francais from "./francais";
-import english from "./english";
+import Ukrainian from "./ukrainian";
+import Francais from "./francais";
+import English from "./english";
 
 export const languages = {
-    ukrainian: ukrainian,
-    english: english,
-    francais: francais,
+    Ukrainian: Ukrainian,
+    English: English,
+    Francais: Francais,
 };

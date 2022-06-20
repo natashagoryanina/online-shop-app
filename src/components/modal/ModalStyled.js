@@ -15,7 +15,6 @@ export const ModalContainer = styled.div`
 
   .modal {
     position: relative;
-    border-radius: 14px;
     overflow: hidden;
 
     &-icon {

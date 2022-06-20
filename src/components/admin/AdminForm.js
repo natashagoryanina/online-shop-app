@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { LanguageContext } from '../App';
 
 const categories = ["phones", "laptops"];
 
@@ -12,8 +13,9 @@ const initialState = {
 };
 
 const AdminForm = ({addProduct}) => {
-
     const [admForm, setAdmForm] = useState(initialState);
+
+    const { language } = useContext(LanguageContext);
     
     const onHandleChange = (e) => {
         const {value, type, name} = e.target;
@@ -52,7 +54,7 @@ const AdminForm = ({addProduct}) => {
     return (
         <form onSubmit={onHandleSubmit}>
             <label>
-                Category: 
+                {language.adminForm.category}:
                 <select 
                     name="category" 
                     onChange={onHandleChange} 
@@ -67,7 +69,7 @@ const AdminForm = ({addProduct}) => {
                 </select>
             </label>
             <label>
-                Name:
+                {language.adminForm.name}:
                 <input 
                     type="text" 
                     name="name"
@@ -76,7 +78,7 @@ const AdminForm = ({addProduct}) => {
                 />
             </label>
             <label>
-                IMG 
+                {language.adminForm.img}
                 <input 
                     type="file" 
                     name="image" 
@@ -85,7 +87,7 @@ const AdminForm = ({addProduct}) => {
             </label>
             {admForm.image && <img src={admForm.image} alt='product' width='200px'/>}
             <label>
-                Description: 
+                {language.adminForm.description}: 
                 <textarea 
                     name="description" 
                     cols="30" 
@@ -95,7 +97,7 @@ const AdminForm = ({addProduct}) => {
                 ></textarea>
             </label>
             <label>
-                Price:
+                {language.adminForm.price}:
                 <input 
                     type="number" 
                     name="price"
@@ -104,7 +106,7 @@ const AdminForm = ({addProduct}) => {
                 />
             </label>
             <label>
-                Is sale:
+                {language.adminForm.sale}:
                 <input 
                     type="checkbox" 
                     name="isSale"
@@ -113,7 +115,7 @@ const AdminForm = ({addProduct}) => {
                     onChange={onHandleChange} 
                 />
             </label>
-            <button type="submit">Save new item</button>
+            <button type="submit">{language.adminForm.save}</button>
         </form>
     );
 };

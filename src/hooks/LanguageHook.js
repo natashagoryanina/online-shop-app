@@ -3,7 +3,7 @@ import { languages } from '../languages';
 
 const LanguageHook = () => {
     const getLocalLanguage = () => 
-        JSON.parse(localStorage.getItem("language")) || "english";
+        JSON.parse(localStorage.getItem("language")) || "English";
         
     const [currentLang, setCurrentLang] = useState(getLocalLanguage());
     
