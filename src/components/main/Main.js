@@ -6,6 +6,8 @@ import CartPage from '../../pages/CartPage';
 import HomePage from '../../pages/HomePage';
 import ProductsPage from '../../pages/ProductsPage';
 import { createNewAdv, getProductsByCategory } from '../../services/api';
+import LaptopList from '../laptopList/LaptopList';
+import PhoneList from '../phoneList/PhoneList';
 
 const cartState = {
     cart: [],
@@ -61,12 +63,20 @@ const Main = () => {
         <main>
             <Routes>
                 <Route path='/' element={<HomePage/>} exact/>
+                <Route path='/products' element={<ProductsPage/>}/>
                 <Route 
-                    path='/products' 
-                    element={<ProductsPage 
-                        products={products}
+                    path='/products/phones' 
+                    element={<PhoneList 
+                        phones={products.phones} 
                         addToCart={addToCart}
-                    />}
+                    />} 
+                />
+                <Route 
+                    path='/products/laptops' 
+                    element={<LaptopList 
+                        laptops={products.laptops} 
+                        addToCart={addToCart}
+                    />} 
                 />
                 <Route 
                     path='/cart'
@@ -82,6 +92,7 @@ const Main = () => {
                 />
                 <Route path='/registration' element={<AuthPage/>}/>
                 <Route path='/login' element={<AuthPage/>}/>
+                <Route path="*" element={<HomePage/>}/>
             </Routes>
         </main>
     );

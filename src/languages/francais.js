@@ -2,7 +2,7 @@ const Francais = {
     title: "Francais",
     navigation: {
         Home: "Page d'accueil",
-        Products: "Des produits",
+        Products: "Les produits",
         Cart: "Panier",
         Administration: "Administration",
         Registration: "S'inscrire",
@@ -29,7 +29,12 @@ const Francais = {
     },
     productItem: {
         price: "Prix",
-        addToCart: "Ajouter au panier"
+        addToCart: "Ajouter au panier",
+        goBackBtn: "Les produits"
+    },
+    productsNav: {
+        Phones: "Téléphones",
+        Laptops: "Ordinateurs portables"
     }
 };
 

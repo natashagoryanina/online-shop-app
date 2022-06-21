@@ -29,7 +29,12 @@ const Ukrainian = {
     },
     productItem: {
         price: "Ціна",
-        addToCart: "Додати в кошик"
+        addToCart: "Додати в кошик",
+        goBackBtn: "Девайси"
+    },
+    productsNav: {
+        Phones: "Телефони",
+        Laptops: "Ноутбуки"
     }
 };
 

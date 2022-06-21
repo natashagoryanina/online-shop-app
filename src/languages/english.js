@@ -29,7 +29,12 @@ const English = {
     },
     productItem: {
         price: "Price",
-        addToCart: "Add to cart"
+        addToCart: "Add to cart",
+        goBackBtn: "All products"
+    },
+    productsNav: {
+        Phones: "Phones",
+        Laptops: "Laptops"
     }
 };
 

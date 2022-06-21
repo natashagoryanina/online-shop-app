@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../App';
 import { LanguageSwitcherContainer } from './LanguageSwitcherStyled';
 import sprite from '../../icons/header/sprite.svg';
+
 const LanguageSwitcher = () => {
-    const {setCurrentLang, languagesList} = useContext(LanguageContext)
+    const {setCurrentLang, languagesList} = useContext(LanguageContext);
 
     const onHandleChange = (e) => {
         setCurrentLang(e.target.value);
