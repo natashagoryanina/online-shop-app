@@ -12,6 +12,18 @@ export const createNewAdv = async (product) => {
     } catch (error) {}
 };
 
+export const deleteAdv = async (category, id) => {
+    try {
+        await axios.delete(BASE_URL + `/advertisements/${category}/${id}.json`);
+    } catch (error) {}
+};
+
+export const createNewOrder = async (order) => {
+    try {
+        await axios.post(BASE_URL + '/orders.json', order);
+    } catch (error) {}
+};
+
 export const getProductsByCategory = async (category) => {
     try {
         const response = await axios.get(
