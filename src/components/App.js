@@ -9,7 +9,7 @@ export const LanguageContext = createContext();
 
 const App = () => {
     const [currentLang, setCurrentLang, languagesList] = LanguageHook();
-
+    
     return (
         <LanguageContext.Provider 
             value={{

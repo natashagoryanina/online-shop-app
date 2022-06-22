@@ -8,17 +8,13 @@ export const HeaderListContainer = styled.div`
         display: flex;
 
         &_item {
+            font-size: 20px;
+            font-weight: 700;
             cursor: pointer;
         }
 
         &_link {
             text-decoration: none;
-            color: #f5f5f7;
-
-            &-active {
-                text-decoration: none;
-                color: #9e9ffc;
-            }
         }
     }
 
@@ -34,8 +30,15 @@ export const HeaderListContainer = styled.div`
             }
 
             &_link {
+                color: #67645e;
+
+                &-active {
+                    text-decoration: none;
+                    color: #7391C8;
+                }
+
                 &:hover {
-                    color: #6062f3;
+                    color: #52688F;
                 }
             }
         }
@@ -50,7 +53,6 @@ export const HeaderListContainer = styled.div`
             align-items: center;
 
             &_item {
-                font-size: 20px;
 
                 &:not(:last-child) {
                     margin-bottom: 20px;
@@ -58,8 +60,15 @@ export const HeaderListContainer = styled.div`
             }
 
             &_link {
+                color: #f1f0ed;
+
+                &-active {
+                    text-decoration: none;
+                    color: #7391C8;
+                }
+
                 &:hover {
-                    color: #3538f1;
+                    color: #BDC6D9;
                 }
             }
         }

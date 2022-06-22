@@ -4,7 +4,9 @@ import { LanguageSwitcherContainer } from './LanguageSwitcherStyled';
 import sprite from '../../icons/header/sprite.svg';
 
 const LanguageSwitcher = () => {
-    const {setCurrentLang, languagesList} = useContext(LanguageContext);
+    const {language, setCurrentLang, languagesList} = useContext(LanguageContext);
+
+    const remainedLangList = languagesList.filter(lang => lang !== language.title);
 
     const onHandleChange = (e) => {
         setCurrentLang(e.target.value);
@@ -18,7 +20,10 @@ const LanguageSwitcher = () => {
                 </svg>
             </div>
             <select className='select-lang' onChange={onHandleChange}>
-                {languagesList.map((language) => (
+                <option value={language.title} key={language.title}>
+                    {language.title}
+                </option>
+                {remainedLangList.map((language) => (
                     <option value={language} key={language}>
                         {language}
                     </option>
