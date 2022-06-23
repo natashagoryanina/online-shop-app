@@ -4,9 +4,11 @@ export const HeaderContainer = styled.header`
     padding: 0 30px;
     display: flex;
     justify-content: center;
-
-    height: 60px;
+    position:sticky;
+    height: 75px;
     background-color: #f1f0ed;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 
     @media (min-width: 350px) and (max-width: 767px) {
         justify-content: flex-end;

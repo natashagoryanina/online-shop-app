@@ -15,6 +15,7 @@ const Ukrainian = {
         laptops: "Ноутбуки"
     },
     adminForm: {
+        imgText: "ДОДАТИ НОВИЙ ПРОДУКТ", 
         category: "Категорія",
         name: "Назва",
         img: "Картинка",

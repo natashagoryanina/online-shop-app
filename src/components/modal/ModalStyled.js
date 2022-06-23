@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const ModalContainer = styled.div`
   position: fixed;
-  top: 60px;
+  top: 100px;
   left: 0;
   width: 100vw;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 25px;
   background-color: #67645ee6;
   z-index: 1200;
   overflow: auto;
@@ -16,7 +17,7 @@ export const ModalContainer = styled.div`
   .modal {
     position: relative;
     overflow: hidden;
-
+  
     &-icon {
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     }

@@ -15,6 +15,7 @@ const Francais = {
         laptops: "Ordinateurs portables"
     },
     adminForm: {
+        imgText: "AJOUTER UN PRODUIT", 
         category: "Catégorie",
         name: "Le nom",
         img: "L'image",

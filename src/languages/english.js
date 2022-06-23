@@ -15,6 +15,7 @@ const English = {
         laptops: "Laptops"
     },
     adminForm: {
+        imgText: "ADD NEW PRODUCT", 
         category: "Category",
         name: "Name",
         img: "IMG",

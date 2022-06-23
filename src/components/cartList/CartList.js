@@ -13,20 +13,22 @@ const CartList = ({cart, removeFromCart, removeAllFromCart}) => {
     };
 
     return (
-        <div>
-            <ul>
-                {cart.map(item => 
-                    <CartListItem 
-                    key={item.id}
-                    product={item} 
-                    removeFromCart={removeFromCart}
-                    />
-                )}
-            </ul>
-            <hr/>
-            <span>{language.cart.totalPrice}: {getTotalPrice()}</span>
-            <button type="button" onClick={removeAllFromCart}>{language.cart.makeOrder}</button>
-        </div>
+        <section>
+            <div>
+                <ul>
+                    {cart.map(item => 
+                        <CartListItem 
+                        key={item.id}
+                        product={item} 
+                        removeFromCart={removeFromCart}
+                        />
+                    )}
+                </ul>
+                <hr/>
+                <span>{language.cart.totalPrice}: {getTotalPrice()}</span>
+                <button type="button" onClick={removeAllFromCart}>{language.cart.makeOrder}</button>
+            </div>
+        </section>
     );
 };
 

@@ -44,19 +44,19 @@ const Header = () => {
 
     return (
         <HeaderContainer>
-            {header.breakPoint < header.width ? 
-                <HeaderList/> :
-                <div className='header-menu'>
-                    <svg className='header-menu_icon' onClick={toggleModal}>
-                        <use href={sprite + '#icon-menu'}/>
-                    </svg>
-                </div>
-            }
-            {(header.isModalOpen && header.width < 768) &&
-                <Modal closeModal={toggleModal}>
-                    <HeaderList/>
-                </Modal>
-            }
+                {header.breakPoint < header.width ? 
+                    <HeaderList/> :
+                    <div className='header-menu'>
+                        <svg className='header-menu_icon' onClick={toggleModal}>
+                            <use href={sprite + '#icon-menu'}/>
+                        </svg>
+                    </div>
+                }
+                {(header.isModalOpen && header.width < 768) &&
+                    <Modal closeModal={toggleModal}>
+                        <HeaderList/>
+                    </Modal>
+                }
         </HeaderContainer>
     );
 };
