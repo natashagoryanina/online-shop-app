@@ -1,5 +1,6 @@
 const Ukrainian = {
     title: "Ukrainian",
+    nativeTitle: "Українська",
     navigation: {
         Home: "Головна",
         Products: "Девайси",

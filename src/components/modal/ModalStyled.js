@@ -2,17 +2,22 @@ import styled from "styled-components";
 
 export const ModalContainer = styled.div`
   position: fixed;
+  margin: 0 25px;
   top: 100px;
   left: 0;
-  width: 100vw;
+  right: 0;
   height: calc(100vh - 100px);
+
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 25px;
+
   background-color: #67645ee6;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   z-index: 1200;
   overflow: auto;
+
 
   .modal {
     position: relative;

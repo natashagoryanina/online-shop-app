@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../App';
 import CartListItem from './cartListItem/CartListItem';
 
-const CartList = ({cart, removeFromCart, removeAllFromCart}) => {
+const CartList = ({cart, removeAllFromCart}) => {
     const { language } = useContext(LanguageContext);
 
     const getTotalPrice = () => {
@@ -20,7 +20,6 @@ const CartList = ({cart, removeFromCart, removeAllFromCart}) => {
                         <CartListItem 
                         key={item.id}
                         product={item} 
-                        removeFromCart={removeFromCart}
                         />
                     )}
                 </ul>

@@ -21,7 +21,7 @@ const LanguageSwitcher = () => {
             </div>
             <select className='select-lang' onChange={onHandleChange}>
                 <option value={language.title} key={language.title}>
-                    {language.title}
+                    {language.nativeTitle}
                 </option>
                 {remainedLangList.map((language) => (
                     <option value={language} key={language}>

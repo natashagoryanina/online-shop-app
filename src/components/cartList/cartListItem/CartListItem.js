@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import sprite from '../../../icons/cart/sprite.svg';
+import { removeFromCartByID } from '../../../redux/cart/cartActions';
 import { CartListItemContainer } from './CartListItemStyled';
 
-const CartListItem = ({product, removeFromCart}) => {
-
-    const remove = () => removeFromCart(product.id);
+const CartListItem = ({product, removeFromCartByID}) => {
+    
+    const remove = () => removeFromCartByID(product.id);
 
     return (
         <CartListItemContainer>
@@ -19,4 +21,10 @@ const CartListItem = ({product, removeFromCart}) => {
     );
 };
 
-export default CartListItem;
+//! mdtp going to props of cartListitem
+const mapDispatchToProps = {
+    removeFromCartByID,
+};
+
+//! null (cause we get nothing from state), mapDispatchToProps - func to change state
+export default connect(null, mapDispatchToProps)(CartListItem);

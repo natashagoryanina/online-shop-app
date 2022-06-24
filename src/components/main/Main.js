@@ -68,7 +68,6 @@ const Main = () => {
                     path='/products/phones' 
                     element={<PhoneList 
                         phones={products.phones} 
-                        addToCart={addToCart}
                     />} 
                 />
                 <Route 
@@ -82,7 +81,6 @@ const Main = () => {
                     path='/cart'
                     element={<CartPage
                         cart={cart}
-                        removeFromCartById={removeFromCartById}
                         removeAllFromCart={removeAllFromCart}
                     />}
                 />

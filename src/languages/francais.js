@@ -1,5 +1,6 @@
 const Francais = {
     title: "Francais",
+    nativeTitle: "Français",
     navigation: {
         Home: "Page d'accueil",
         Products: "Les produits",
