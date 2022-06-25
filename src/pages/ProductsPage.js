@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { LanguageContext } from '../components/App';
+import Section from '../components/Section';
 import { productsRoutes } from '../routes/productsRoutes';
 
 const ProductsPage = () => {
     const { language } = useContext(LanguageContext);
 
     return (
-        <div>
+        <Section>
             <nav className='products-nav'>
                 <ul className='products-list'>
                     {productsRoutes.map((item) => (
@@ -22,7 +23,7 @@ const ProductsPage = () => {
                     ))}
                 </ul>
             </nav>
-        </div>
+        </Section>
     );
 };
 

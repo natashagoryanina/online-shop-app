@@ -1,8 +1,11 @@
 import React from 'react';
+import Section from '../components/Section';
 
 const AuthPage = () => {
     return (
-        <h1>Auth Page</h1>
+        <Section>
+            <h1>Auth Page</h1>
+        </Section>
     );
 };
 

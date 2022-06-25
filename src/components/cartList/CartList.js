@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
+import { connect } from 'react-redux';
+import { createOrder } from '../../redux/cart/cartActions';
 import { LanguageContext } from '../App';
 import CartListItem from './cartListItem/CartListItem';
 
-const CartList = ({cart, removeAllFromCart}) => {
+const CartList = ({cart, createOrder}) => {
     const { language } = useContext(LanguageContext);
 
     const getTotalPrice = () => {
@@ -25,10 +27,14 @@ const CartList = ({cart, removeAllFromCart}) => {
                 </ul>
                 <hr/>
                 <span>{language.cart.totalPrice}: {getTotalPrice()}</span>
-                <button type="button" onClick={removeAllFromCart}>{language.cart.makeOrder}</button>
+                <button type="button" onClick={createOrder}>{language.cart.makeOrder}</button>
             </div>
         </section>
     );
 };
 
-export default CartList;
+const mapStateToProps = (state, ownProps) => ({
+    cart: state.cart.items
+});
+
+export default connect(mapStateToProps, {createOrder})(CartList);

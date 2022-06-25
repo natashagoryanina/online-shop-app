@@ -1,10 +1,20 @@
 import React, { useContext } from 'react';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { setLaptops } from '../../redux/products/productsActions';
+import { getProductsByCategory } from '../../services/api';
 import { LanguageContext } from '../App';
 import LaptopListItem from './laptopListItem/LaptopListItem';
 
-const LaptopList = ({laptops, addToCart}) => {
+const LaptopList = ({laptops, setLaptops}) => {
     const { language } = useContext(LanguageContext);
+
+    useEffect(() => {
+        getProductsByCategory('laptops').then(laptops => 
+            laptops && setLaptops(laptops));
+    }, [setLaptops])
+
     let navigate = useNavigate();
 
     const goBack = () => {
@@ -21,7 +31,6 @@ const LaptopList = ({laptops, addToCart}) => {
                     <LaptopListItem 
                         laptop={laptop} 
                         key={laptop.id}
-                        addToCart={addToCart}
                     />
                 ))}
             </ul>
@@ -29,4 +38,8 @@ const LaptopList = ({laptops, addToCart}) => {
     );
 };
 
-export default LaptopList;
+const mapStateToProps = (state) => ({
+    laptops: state.products.items.laptops
+});
+
+export default connect(mapStateToProps, {setLaptops})(LaptopList);

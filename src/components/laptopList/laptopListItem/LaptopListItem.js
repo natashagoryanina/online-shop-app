@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import { connect } from 'react-redux';
+import { addToCart } from '../../../redux/cart/cartActions';
 import { LanguageContext } from '../../App';
 
 const LaptopListItem = ({laptop, addToCart}) => {
@@ -26,4 +28,4 @@ const LaptopListItem = ({laptop, addToCart}) => {
     );
 };
 
-export default LaptopListItem;
+export default connect(null, {addToCart})(LaptopListItem);

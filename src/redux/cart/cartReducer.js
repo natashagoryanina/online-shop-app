@@ -4,6 +4,7 @@ import {
     addToCart, 
     createOrder, 
     removeFromCartByID, 
+    removeAllFromCart,
     resetError, 
     setError, 
     setLoader 
@@ -12,7 +13,8 @@ import {
 const cartItemsReducer = createReducer([], {
     [addToCart]: (state, action) => [...state, action.payload],
     [removeFromCartByID]: (state, action) => state.filter(product => product.id !== action.payload),
-    [createOrder]: () => {},
+    [createOrder]: () => [],
+    [removeAllFromCart]: () => [],
 });
 
 const cartLoaderReducer = createReducer(false, {
