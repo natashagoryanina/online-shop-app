@@ -1,19 +1,28 @@
 import React, { useContext } from 'react';
 import { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { setLaptops } from '../../redux/products/productsActions';
-import { getProductsByCategory } from '../../services/api';
+import { getAllProductsByCategoryOperation } from '../../redux/products/productsOperations';
 import { LanguageContext } from '../App';
 import LaptopListItem from './laptopListItem/LaptopListItem';
 
-const LaptopList = ({laptops, setLaptops}) => {
+const LaptopList = () => {
     const { language } = useContext(LanguageContext);
 
+    const laptops = useSelector((state)=> state.products.items.laptops);
+    const dispatch = useDispatch();
+
+    //! async redux
     useEffect(() => {
-        getProductsByCategory('laptops').then(laptops => 
-            laptops && setLaptops(laptops));
-    }, [setLaptops])
+        dispatch(getAllProductsByCategoryOperation('laptops', setLaptops));
+    }, [dispatch]);
+
+    //! redux
+    // useEffect(() => {
+    //     getProductsByCategory('laptops').then(laptops => 
+    //         laptops && setLaptops(laptops));
+    // }, [setLaptops])
 
     let navigate = useNavigate();
 
@@ -38,8 +47,4 @@ const LaptopList = ({laptops, setLaptops}) => {
     );
 };
 
-const mapStateToProps = (state) => ({
-    laptops: state.products.items.laptops
-});
-
-export default connect(mapStateToProps, {setLaptops})(LaptopList);
+export default LaptopList;

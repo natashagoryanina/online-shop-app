@@ -3,6 +3,7 @@ import { LanguageContext } from '../App';
 import { AdminFormContainer } from './AdminFormStyled';
 import asminFormImg from '../../images/waves_6.jpeg';
 import sprite from '../../icons/adminForm/sprite.svg';
+import { createNewAdv } from '../../services/api';
 
 const categories = ["phones", "laptops"];
 
@@ -15,7 +16,7 @@ const initialState = {
     isSale: false, 
 };
 
-const AdminForm = ({addProduct}) => {
+const AdminForm = () => {
     const [admForm, setAdmForm] = useState(initialState);
 
     const { language } = useContext(LanguageContext);
@@ -51,7 +52,7 @@ const AdminForm = ({addProduct}) => {
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
-        addProduct({...admForm, price: Number(admForm.price)});
+        createNewAdv({...admForm, price: Number(admForm.price)});
     };
 
     return (

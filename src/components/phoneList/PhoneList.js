@@ -1,19 +1,28 @@
 import React, { useContext } from 'react';
 import { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { setPhones } from '../../redux/products/productsActions';
-import { getProductsByCategory } from '../../services/api';
+import { getAllProductsByCategoryOperation } from '../../redux/products/productsOperations';
 import { LanguageContext } from '../App';
 import PhoneListItem from './phoneListItem/PhoneListItem';
 
-const PhoneList = ({phones, setPhones}) => {
+const PhoneList = () => {
     const { language } = useContext(LanguageContext);
 
+    const phones = useSelector((state)=> state.products.items.phones);
+    const dispatch = useDispatch();
+
+    //! async redux
     useEffect(() => {
-        getProductsByCategory('phones').then(phones => 
-            phones && setPhones(phones));
-    }, [setPhones])
+        dispatch(getAllProductsByCategoryOperation('phones', setPhones));
+    }, [dispatch]);
+
+    //! redux
+    // useEffect(() => {
+    //     getProductsByCategory('phones').then(phones => 
+    //         phones && setPhones(phones));
+    // }, [setPhones])
 
     let navigate = useNavigate();
 
@@ -39,8 +48,4 @@ const PhoneList = ({phones, setPhones}) => {
     );
 };
 
-const mapStateToProps = (state) => ({
-    phones: state.products.items.phones
-});
-
-export default connect(mapStateToProps, {setPhones})(PhoneList);
+export default PhoneList;

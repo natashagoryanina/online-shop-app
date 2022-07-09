@@ -2,11 +2,11 @@ import React from 'react';
 import AdminForm from '../components/admin/AdminForm';
 import Section from '../components/Section';
 
-const AdminPage = ({ addProduct }) => {
+const AdminPage = () => {
 
     return (
         <Section>
-            <AdminForm addProduct={addProduct}/>
+            <AdminForm/>
         </Section>
     );
 };

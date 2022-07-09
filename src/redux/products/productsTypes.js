@@ -9,5 +9,5 @@ export {
     SETLOADER, 
     RESETERROR, 
     SETPHONES, 
-    SETLAPTOPS 
+    SETLAPTOPS,
 };

@@ -12,5 +12,5 @@ export {
     resetError, 
     setLoader, 
     setPhones, 
-    setLaptops 
+    setLaptops,
 };
