@@ -1,5 +1,5 @@
 import { getProductsByCategory } from "../../services/api";
-import { setLoader } from "./productsActions";
+import { setError, setLoader } from "./productsActions";
 
 const getAllProductsByCategoryOperation = (category, callback) => 
     async (dispatch) => {
@@ -8,7 +8,8 @@ const getAllProductsByCategoryOperation = (category, callback) =>
             const response = await getProductsByCategory(category);
             dispatch(callback(response));
         } catch (error) {
-            
+            dispatch(setError(error.message));
+            console.log(error);
         } finally {
             dispatch(setLoader());
         }

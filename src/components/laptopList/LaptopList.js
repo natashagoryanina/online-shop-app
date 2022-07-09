@@ -5,12 +5,14 @@ import { useNavigate } from 'react-router';
 import { setLaptops } from '../../redux/products/productsActions';
 import { getAllProductsByCategoryOperation } from '../../redux/products/productsOperations';
 import { LanguageContext } from '../App';
+import Loader from '../loader/Loader';
 import LaptopListItem from './laptopListItem/LaptopListItem';
 
 const LaptopList = () => {
     const { language } = useContext(LanguageContext);
 
     const laptops = useSelector((state)=> state.products.items.laptops);
+    const isLoading = useSelector((state) => state.products.loader);
     const dispatch = useDispatch();
 
     //! async redux
@@ -32,17 +34,21 @@ const LaptopList = () => {
 
     return (
         <div>
-            <button type='button' onClick={goBack}>
-                {language.productItem.goBackBtn}
-            </button>
-            <ul>
-                {laptops.map((laptop) => (
-                    <LaptopListItem 
-                        laptop={laptop} 
-                        key={laptop.id}
-                    />
-                ))}
-            </ul>
+            {isLoading ? <Loader/> : 
+                <>
+                    <button type='button' onClick={goBack}>
+                        {language.productItem.goBackBtn}
+                    </button>
+                    <ul>
+                        {laptops.map((laptop) => (
+                            <LaptopListItem 
+                                laptop={laptop} 
+                                key={laptop.id}
+                            />
+                        ))}
+                    </ul>
+                </>
+            }
         </div>
     );
 };

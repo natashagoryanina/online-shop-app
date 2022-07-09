@@ -5,12 +5,14 @@ import { useNavigate } from 'react-router';
 import { setPhones } from '../../redux/products/productsActions';
 import { getAllProductsByCategoryOperation } from '../../redux/products/productsOperations';
 import { LanguageContext } from '../App';
+import Loader from '../loader/Loader';
 import PhoneListItem from './phoneListItem/PhoneListItem';
 
 const PhoneList = () => {
     const { language } = useContext(LanguageContext);
 
     const phones = useSelector((state)=> state.products.items.phones);
+    const isLoading = useSelector((state) => state.products.loader);
     const dispatch = useDispatch();
 
     //! async redux
@@ -32,18 +34,22 @@ const PhoneList = () => {
 
     return (
         <div>
-            <button type='button' onClick={goBack}>
-                &laquo;
-                {language.productItem.goBackBtn}
-            </button>
-            <ul>
-                {phones.map((phone) => (
-                    <PhoneListItem 
-                        phone={phone} 
-                        key={phone.id} 
-                    />
-                ))}
-            </ul>
+            {isLoading ? <Loader/> : 
+                <>
+                    <button type='button' onClick={goBack}>
+                        &laquo;
+                        {language.productItem.goBackBtn}
+                    </button>
+                    <ul>
+                        {phones.map((phone) => (
+                            <PhoneListItem 
+                                phone={phone} 
+                                key={phone.id} 
+                            />
+                        ))}
+                    </ul>
+                </>
+            }
         </div>
     );
 };

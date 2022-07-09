@@ -37,5 +37,7 @@ export const getProductsByCategory = async (category) => {
             }));
             return products;
         };
-    } catch (error) {}
+    } catch (error) {
+        throw new Error(error);
+    }
 };
