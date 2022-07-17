@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { setPhones } from '../../redux/products/productsActions';
 import { getAllProductsByCategoryOperation } from '../../redux/products/productsOperations';
+import { productsLoaderSelector, phonesSelector } from '../../redux/products/productsSelectors';
 import { LanguageContext } from '../App';
 import Loader from '../loader/Loader';
 import PhoneListItem from './phoneListItem/PhoneListItem';
@@ -11,8 +12,8 @@ import PhoneListItem from './phoneListItem/PhoneListItem';
 const PhoneList = () => {
     const { language } = useContext(LanguageContext);
 
-    const phones = useSelector((state)=> state.products.items.phones);
-    const isLoading = useSelector((state) => state.products.loader);
+    const phones = useSelector(phonesSelector);
+    const isLoading = useSelector(productsLoaderSelector);
     const dispatch = useDispatch();
 
     //! async redux

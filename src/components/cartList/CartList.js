@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { createOrder } from '../../redux/cart/cartActions';
+import { cartItemsSelector } from '../../redux/cart/cartSelectors';
 import { LanguageContext } from '../App';
 import CartListItem from './cartListItem/CartListItem';
 
-const CartList = ({cart, createOrder}) => {
+const CartList = ({createOrder}) => {
     const { language } = useContext(LanguageContext);
+
+    const cart = useSelector(cartItemsSelector);
 
     const getTotalPrice = () => {
         return cart.reduce((acc, item) => {
@@ -20,8 +23,8 @@ const CartList = ({cart, createOrder}) => {
                 <ul>
                     {cart.map(item => 
                         <CartListItem 
-                        key={item.id}
-                        product={item} 
+                            key={item.id}
+                            product={item} 
                         />
                     )}
                 </ul>
@@ -33,8 +36,4 @@ const CartList = ({cart, createOrder}) => {
     );
 };
 
-const mapStateToProps = (state, ownProps) => ({
-    cart: state.cart.items
-});
-
-export default connect(mapStateToProps, {createOrder})(CartList);
+export default connect(null, {createOrder})(CartList);

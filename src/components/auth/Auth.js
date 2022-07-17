@@ -1,16 +1,26 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { resetError } from '../../redux/auth/authActions';
+import { signUpOperation } from '../../redux/auth/authOperations';
+import { authErrorSelector } from '../../redux/auth/authSelectors';
 import AuthForm from './authForm/AuthForm';
 
 const Auth = () => {
-    const error = useSelector(state => state.auth.error);
+    const dispatch = useDispatch();
+    const error = useSelector(authErrorSelector);
+
+    const resetErr = () => error && dispatch(resetError());
+    const signUp = (usersData) =>  dispatch(signUpOperation(usersData));
 
     return (
         <div>
             <h2>
                 Create Account 
             </h2>
-            <AuthForm error={error}/>
+            <AuthForm 
+                resetErr={resetErr}
+                signUp={signUp}
+            />
             {error && <h3>{error}</h3>}
         </div>
     );

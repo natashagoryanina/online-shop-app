@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { resetError } from '../../../redux/auth/authActions';
-import { signUpOperation } from '../../../redux/auth/authOperations';
 
-const AuthForm = ({error}) => {
+const AuthForm = ({resetErr, signUp}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const dispatch = useDispatch();
-
     const onHandleChange = (e) => {
-        error && dispatch(resetError());
-        
+        resetErr();
         const { name, value } = e.target;
         name === 'email' && setEmail(value);
         name === 'password' && setPassword(value);
@@ -19,8 +13,7 @@ const AuthForm = ({error}) => {
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
-        dispatch(signUpOperation({email, password}))
-        console.log({email, password});
+        signUp({email, password});
     };
 
     return (

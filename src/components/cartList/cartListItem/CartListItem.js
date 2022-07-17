@@ -21,10 +21,5 @@ const CartListItem = ({product, removeFromCartByID}) => {
     );
 };
 
-//! mdtp going to props of cartListitem
-const mapDispatchToProps = {
-    removeFromCartByID,
-};
-
 //! null (cause we get nothing from state), mapDispatchToProps - func to change state
-export default connect(null, mapDispatchToProps)(CartListItem);
+export default connect(null, {removeFromCartByID})(CartListItem);
