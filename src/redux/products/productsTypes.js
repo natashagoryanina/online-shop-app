@@ -1,8 +1,8 @@
-const SETPHONES = "getPhones";
-const SETLAPTOPS = "getLaptops";
-const SETLOADER = "setLoader";
-const SETERROR = "setError";
-const RESETERROR = "resetError";
+const SETPHONES = "products/getPhones";
+const SETLAPTOPS = "products/getLaptops";
+const SETLOADER = "products/setLoader";
+const SETERROR = "products/setError";
+const RESETERROR = "products/resetError";
 
 export { 
     SETERROR, 

@@ -1,6 +1,8 @@
 import axios from "axios";
 
 const BASE_URL = 'https://online-shop-app-7c382-default-rtdb.firebaseio.com';
+const API_KEY ='AIzaSyAkA51X71PfHV0Ir7dOqIek3JjZEZIdV-g';
+const SIGNUP_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
 
 export const createNewAdv = async (product) => {
     try {
@@ -15,12 +17,6 @@ export const createNewAdv = async (product) => {
 export const deleteAdv = async (category, id) => {
     try {
         await axios.delete(BASE_URL + `/advertisements/${category}/${id}.json`);
-    } catch (error) {}
-};
-
-export const createNewOrder = async (order) => {
-    try {
-        await axios.post(BASE_URL + '/orders.json', order);
     } catch (error) {}
 };
 
@@ -39,5 +35,18 @@ export const getProductsByCategory = async (category) => {
         };
     } catch (error) {
         throw new Error(error);
+    }
+};
+
+//! Authorization
+
+export const signUpUser = async (usersData) => {
+    try {
+        const response = await axios.post(
+            SIGNUP_URL, usersData
+        );
+        return response.data;
+    } catch (error) {
+        throw new Error(error.response.data.error.message);
     }
 };

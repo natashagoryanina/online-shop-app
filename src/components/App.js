@@ -6,6 +6,7 @@ import Header from './header/Header';
 import Main from './main/Main';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
+
 export const LanguageContext = createContext();
 
 const App = () => {

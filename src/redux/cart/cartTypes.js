@@ -1,10 +1,10 @@
-const ADDTOCART = "addToCart";
-const REMOVEFROMCARTBYID = "removeFromCartById";
-const REMOVEALLFROMCART = "removeAllFromCart";
-const CREATEORDER = "createOrder";
-const SETLOADER = "setLoader";
-const SETERROR = "setError";
-const RESETERROR = "resetError";
+const ADDTOCART = "cart/addToCart";
+const REMOVEFROMCARTBYID = "cart/removeFromCartById";
+const REMOVEALLFROMCART = "cart/removeAllFromCart";
+const CREATEORDER = "cart/createOrder";
+const SETLOADER = "cart/setLoader";
+const SETERROR = "cart/setError";
+const RESETERROR = "cart/resetError";
 
 export {
   ADDTOCART,
