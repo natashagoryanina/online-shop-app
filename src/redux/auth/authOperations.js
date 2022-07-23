@@ -18,5 +18,5 @@ const signUpOperation = (usersData) =>
 };
 
 export {
-    signUpOperation
+    signUpOperation,
 };

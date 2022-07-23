@@ -17,18 +17,11 @@ const PhoneList = () => {
     const isLoading = useSelector(productsLoaderSelector);
     const dispatch = useDispatch();
 
-    //! async redux
     useEffect(() => {
         dispatch(getAllProductsByCategoryOperation('phones', setPhones));
     }, [dispatch]);
 
     const addProduct = (item) => dispatch(addToCart(item));
-
-    //! redux
-    // useEffect(() => {
-    //     getProductsByCategory('phones').then(phones => 
-    //         phones && setPhones(phones));
-    // }, [setPhones])
 
     let navigate = useNavigate();
 

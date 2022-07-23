@@ -17,18 +17,11 @@ const LaptopList = () => {
     const isLoading = useSelector(productsLoaderSelector);
     const dispatch = useDispatch();
 
-    //! async redux
     useEffect(() => {
         dispatch(getAllProductsByCategoryOperation('laptops', setLaptops));
     }, [dispatch]);
 
     const addProduct = (item) => dispatch(addToCart(item));
-
-    //! redux
-    // useEffect(() => {
-    //     getProductsByCategory('laptops').then(laptops => 
-    //         laptops && setLaptops(laptops));
-    // }, [setLaptops])
 
     let navigate = useNavigate();
 
