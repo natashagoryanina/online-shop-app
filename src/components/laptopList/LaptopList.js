@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { addToCart } from '../../redux/cart/cartActions';
 import { setLaptops } from '../../redux/products/productsActions';
 import { getAllProductsByCategoryOperation } from '../../redux/products/productsOperations';
 import { laptopsSelector, productsLoaderSelector } from '../../redux/products/productsSelectors';
@@ -20,6 +21,8 @@ const LaptopList = () => {
     useEffect(() => {
         dispatch(getAllProductsByCategoryOperation('laptops', setLaptops));
     }, [dispatch]);
+
+    const addProduct = (item) => dispatch(addToCart(item));
 
     //! redux
     // useEffect(() => {
@@ -44,6 +47,7 @@ const LaptopList = () => {
                         {laptops.map((laptop) => (
                             <LaptopListItem 
                                 laptop={laptop} 
+                                addProduct={addProduct}
                                 key={laptop.id}
                             />
                         ))}

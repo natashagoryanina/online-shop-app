@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
-import { connect, useSelector } from 'react-redux';
-import { createOrder } from '../../redux/cart/cartActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { createOrder, removeFromCartByID } from '../../redux/cart/cartActions';
 import { cartItemsSelector } from '../../redux/cart/cartSelectors';
 import { LanguageContext } from '../App';
 import CartListItem from './cartListItem/CartListItem';
 
-const CartList = ({createOrder}) => {
+const CartList = () => {
     const { language } = useContext(LanguageContext);
 
     const cart = useSelector(cartItemsSelector);
+    const dispatch = useDispatch();
 
     const getTotalPrice = () => {
         return cart.reduce((acc, item) => {
@@ -17,6 +18,9 @@ const CartList = ({createOrder}) => {
         }, 0)
     };
 
+    const removeFromCart = (id) => dispatch(removeFromCartByID(id));
+    const order = () => dispatch(createOrder());
+
     return (
         <section>
             <div>
@@ -24,16 +28,17 @@ const CartList = ({createOrder}) => {
                     {cart.map(item => 
                         <CartListItem 
                             key={item.id}
+                            removeFromCart={removeFromCart}
                             product={item} 
                         />
                     )}
                 </ul>
                 <hr/>
                 <span>{language.cart.totalPrice}: {getTotalPrice()}</span>
-                <button type="button" onClick={createOrder}>{language.cart.makeOrder}</button>
+                <button type="button" onClick={order}>{language.cart.makeOrder}</button>
             </div>
         </section>
     );
 };
 
-export default connect(null, {createOrder})(CartList);
+export default CartList;

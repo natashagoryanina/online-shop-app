@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { addToCart } from '../../redux/cart/cartActions';
 import { setPhones } from '../../redux/products/productsActions';
 import { getAllProductsByCategoryOperation } from '../../redux/products/productsOperations';
 import { productsLoaderSelector, phonesSelector } from '../../redux/products/productsSelectors';
@@ -20,6 +21,8 @@ const PhoneList = () => {
     useEffect(() => {
         dispatch(getAllProductsByCategoryOperation('phones', setPhones));
     }, [dispatch]);
+
+    const addProduct = (item) => dispatch(addToCart(item));
 
     //! redux
     // useEffect(() => {
@@ -45,6 +48,7 @@ const PhoneList = () => {
                         {phones.map((phone) => (
                             <PhoneListItem 
                                 phone={phone} 
+                                addProduct={addProduct}
                                 key={phone.id} 
                             />
                         ))}

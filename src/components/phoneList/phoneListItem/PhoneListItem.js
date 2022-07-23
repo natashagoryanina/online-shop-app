@@ -1,14 +1,10 @@
 import React, { useContext } from 'react';
-import { connect } from 'react-redux';
-import { addToCart } from '../../../redux/cart/cartActions';
 import { LanguageContext } from '../../App';
 
-const PhoneListItem = ({phone, addToCart}) => {
+const PhoneListItem = ({phone, addProduct}) => {
     const { language } = useContext(LanguageContext);
 
-    const addProduct = () => {
-        addToCart(phone);
-    };
+    const addProductToCart = () => addProduct(phone);
 
     return (
         <li>
@@ -20,7 +16,7 @@ const PhoneListItem = ({phone, addToCart}) => {
             </p>
             <button 
                 type="button" 
-                onClick={addProduct}
+                onClick={addProductToCart}
             >
                 {language.productItem.addToCart}
             </button>
@@ -28,4 +24,4 @@ const PhoneListItem = ({phone, addToCart}) => {
     );
 };
 
-export default connect(null, {addToCart})(PhoneListItem);
+export default PhoneListItem;
