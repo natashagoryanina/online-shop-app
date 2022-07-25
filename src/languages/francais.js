@@ -6,8 +6,8 @@ const Francais = {
         Products: "Les produits",
         Cart: "Panier",
         Administration: "Administration",
-        Registration: "S'inscrire",
-        Login: "Connexion"
+        Account: "Compter",
+        Favourites: "Favoris",
     },
     section: {
         admin: "Ajouter un nouveau produit",
@@ -37,6 +37,24 @@ const Francais = {
     productsNav: {
         Phones: "Téléphones",
         Laptops: "Ordinateurs portables"
+    },
+    signIn: {
+        title: "Votre Compte",
+        question: "Vous n'avez pas de compte",
+        signUp: "Créer un compte",
+        email: "E-mail",
+        password: "Mot de passe",
+        signIn: "Se connecter"
+    },
+    signUp: {
+        title: "Create Account",
+        question: "Vous avez déjà un compte",
+        signIn: "Se connecter",
+        firstName: "Nom",
+        lastName: "Prénom",
+        email: "E-mail",
+        password: "Mot de passe",
+        signUp: "Créer un compte"
     }
 };
 

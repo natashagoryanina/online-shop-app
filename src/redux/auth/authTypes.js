@@ -4,6 +4,9 @@ const SIGNOUT = 'auth/signOut';
 const SETLOADER = 'auth/setLoader';
 const SETERROR = 'auth/setError';
 const RESETERROR = 'auth/resetError';
+const SIGNUPSUCCESS = 'auth/signUpSuccess';
+const SIGNUPREQUEST = 'auth/signUpRequest';
+const SIGNUPERROR = 'auth/signUpError';
 
 export {
     SIGNUP,
@@ -11,5 +14,8 @@ export {
     SIGNOUT,
     SETLOADER,
     SETERROR,
-    RESETERROR
+    RESETERROR,
+    SIGNUPSUCCESS,
+    SIGNUPREQUEST,
+    SIGNUPERROR,
 };

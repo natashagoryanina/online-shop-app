@@ -6,8 +6,8 @@ const English = {
         Products: "Products",
         Cart: "Cart",
         Administration: "Administration",
-        Registration: "Registration",
-        Login: "Login"
+        Account: "Account",
+        Favourites: "Favourites",
     },
     section: {
         admin: "Add new product",
@@ -37,6 +37,24 @@ const English = {
     productsNav: {
         Phones: "Phones",
         Laptops: "Laptops"
+    },
+    signIn: {
+        title: "Login",
+        question: "Don't have an account",
+        signUp: "Sign up",
+        email: "Email",
+        password: "Password",
+        signIn: "Sign in"
+    },
+    signUp: {
+        title: "Create Account",
+        question: "Already have an account",
+        signIn: "Sign in",
+        firstName: "First Name",
+        lastName: "Last Name",
+        email: "Email",
+        password: "Password",
+        signUp: "Sign up"
     }
 };
 

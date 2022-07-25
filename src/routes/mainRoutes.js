@@ -1,38 +1,45 @@
 import AdminPage from "../pages/AdminPage";
-import AuthPage from "../pages/AuthPage";
 import CartPage from "../pages/CartPage";
+import FavouritesPage from "../pages/FavouritesPage";
 import HomePage from "../pages/HomePage";
 import ProductsPage from "../pages/ProductsPage";
+import RegisterPage from "../pages/RegisterPage";
 
 export const mainRoutes = [
     {
       name: "Home",
       path: "/",
       component: HomePage,
+      isPrivate: false,
     },
     {
       name: "Products",
       path: "/products",
       component: ProductsPage,
+      isPrivate: false,
     },
     {
       name: "Cart",
       path: "/cart",
       component: CartPage,
+      isPrivate: false,
     },
     {
       name: "Administration",
       path: "/admin",
       component: AdminPage,
+      isPrivate: true,
     },
     {
-      name: "Registration",
-      path: "/registration",
-      component: AuthPage,
+      name: "Account",
+      path: "/account/register",
+      component: RegisterPage,
+      isPrivate: false,
     },
     {
-      name: "Login",
-      path: "/login",
-      component: AuthPage,
-    },
+      name: "Favourites",
+      path: "/favourites",
+      component: FavouritesPage,
+      isPrivate: true,
+    }
 ];

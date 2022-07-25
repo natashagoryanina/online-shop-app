@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AuthForm = ({resetErr, signUp}) => {
+const SignInForm = ({resetErr}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -13,7 +13,7 @@ const AuthForm = ({resetErr, signUp}) => {
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
-        signUp({email, password});
+        //signIn({email, password});
     };
 
     return (
@@ -40,11 +40,11 @@ const AuthForm = ({resetErr, signUp}) => {
                 <button
                     type='submit'
                 >
-                    Sign up
+                    Sign in
                 </button>
             </form>
         </div>
     );
 };
 
-export default AuthForm;
+export default SignInForm;

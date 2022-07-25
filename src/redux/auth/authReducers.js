@@ -6,13 +6,13 @@ import {
     setLoader, 
     signIn, 
     signOut, 
-    signUp 
+    signUp,
 } from "./authActions";
 
 const authUserReducer = createReducer(null, {
     [signUp]: (_, action) => action.payload,
     [signIn]: (_, action) => action.payload,
-    [signOut]: () => null 
+    [signOut]: () => null
 });
 
 const authLoaderReducer = createReducer(false, {

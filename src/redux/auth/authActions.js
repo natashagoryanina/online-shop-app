@@ -5,7 +5,10 @@ import {
     SETLOADER, 
     SIGNIN, 
     SIGNOUT, 
-    SIGNUP 
+    SIGNUP,
+    SIGNUPSUCCESS,
+    SIGNUPREQUEST,
+    SIGNUPERROR,
 } from "./authTypes";
 
 const signUp = createAction(SIGNUP);
@@ -14,6 +17,9 @@ const signOut = createAction(SIGNOUT);
 const setLoader = createAction(SETLOADER);
 const setError = createAction(SETERROR);
 const resetError = createAction(RESETERROR);
+const signUpSuccess = createAction(SIGNUPSUCCESS);
+const signUpRequest = createAction(SIGNUPREQUEST);
+const signUpError = createAction(SIGNUPERROR);
 
 export {
     signUp,
@@ -21,5 +27,8 @@ export {
     signOut,
     setLoader,
     setError,
-    resetError
+    resetError,
+    signUpSuccess,
+    signUpRequest,
+    signUpError
 };

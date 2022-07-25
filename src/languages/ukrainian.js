@@ -6,8 +6,8 @@ const Ukrainian = {
         Products: "Девайси",
         Cart: "Кошик",
         Administration: "Адміністрація",
-        Registration: "Реєстрація",
-        Login: "Увійти"
+        Account: "Акаунт",
+        Favourites: "Вибране",
     },
     section: {
         admin: "Додати новий девайс",
@@ -37,6 +37,24 @@ const Ukrainian = {
     productsNav: {
         Phones: "Телефони",
         Laptops: "Ноутбуки"
+    },
+    signIn: {
+        title: "Увійти",
+        question: "Не зареєстровані",
+        signUp: "Зареєструватися",
+        email: "Емейл",
+        password: "Пароль",
+        signIn: "Увійти"
+    },
+    signUp: {
+        title: "Створити Акаунт",
+        question: "Вже є акаунт",
+        signIn: "Увійти",
+        firstName: "Ім'я",
+        lastName: "Прізвище",
+        email: "Емейл",
+        password: "Пароль",
+        signUp: "Зареєструватися"
     }
 };
 

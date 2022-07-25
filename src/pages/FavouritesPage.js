@@ -1,14 +1,12 @@
 import React from 'react';
-import Auth from '../components/auth/Auth';
-
 import Section from '../components/Section';
 
-const AuthPage = () => {
+const FavouritesPage = () => {
     return (
         <Section>
-            <Auth/>
+            <h1>Favourites</h1>
         </Section>
     );
 };
 
-export default AuthPage;
+export default FavouritesPage;
