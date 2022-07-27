@@ -62,3 +62,18 @@ export const signInUser = async (usersData) => {
         throw new Error(error.response.data.error.message);
     }
 };
+
+//! Favourites
+
+export const addFaveItem = async (item, localId) => {
+    try {
+        const response = await axios.post(
+            BASE_URL + `/favourites/${localId}.json`,
+            item
+        );
+        console.log(response.data)
+        return response.data;
+    } catch (error) {
+        throw new Error(error.response.data.error.message);
+    }
+};

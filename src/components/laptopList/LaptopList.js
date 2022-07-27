@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { addToCart } from '../../redux/cart/cartActions';
+import { addItemToFavouritesOperation } from '../../redux/favourites/favouritesOperations';
 import { setLaptops } from '../../redux/products/productsActions';
 import { getAllProductsByCategoryOperation } from '../../redux/products/productsOperations';
 import { laptopsSelector, productsLoaderSelector } from '../../redux/products/productsSelectors';
@@ -23,6 +24,8 @@ const LaptopList = () => {
 
     const addProduct = (item) => dispatch(addToCart(item));
 
+    const addItemToFave = (item) => dispatch(addItemToFavouritesOperation(item));
+
     let navigate = useNavigate();
 
     const goBack = () => {
@@ -42,6 +45,7 @@ const LaptopList = () => {
                                 laptop={laptop} 
                                 addProduct={addProduct}
                                 key={laptop.id}
+                                addItemToFave={addItemToFave}
                             />
                         ))}
                     </ul>
