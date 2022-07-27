@@ -1,26 +1,28 @@
 import React, { useContext } from 'react'
-import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { authIsAuthSelector } from '../../../redux/auth/authSelectors';
 import { mainRoutes } from '../../../routes/mainRoutes';
 import { LanguageContext } from '../../App';
 import LanguageSwitcher from '../../languageSwitcher/LanguageSwitcher';
+import HeaderListItem from './headerListItem.js/HeaderListItem';
 import { HeaderListContainer } from './HeaderListStyled';
 
 const HeaderList = () => {
     const { language } = useContext(LanguageContext);
+    const isAuth = useSelector(authIsAuthSelector);
    
     return (
         <HeaderListContainer>
             <nav className='header-nav'>
                 <ul className='header-list'>
                     {mainRoutes.map((item) => (
-                        <li className='header-list_item' key={item.path}>
-                            <NavLink
-                                to={item.path} 
-                                className={({ isActive }) => (isActive ? "header-list_link-active" : "header-list_link")}
-                            >
-                                {language.navigation[item.name]}
-                            </NavLink>
-                        </li>
+                        <HeaderListItem 
+                            path={item.path} 
+                            name={item.name}
+                            isPrivate={item.isPrivate}
+                            isAuth={isAuth}
+                            language={language}
+                        />
                     ))}
                 </ul>
             </nav>

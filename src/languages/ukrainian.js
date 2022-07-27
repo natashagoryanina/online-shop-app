@@ -42,7 +42,7 @@ const Ukrainian = {
         title: "Увійти",
         question: "Не зареєстровані",
         signUp: "Зареєструватися",
-        email: "Емейл",
+        email: "Електронна пошта",
         password: "Пароль",
         signIn: "Увійти"
     },
@@ -52,7 +52,7 @@ const Ukrainian = {
         signIn: "Увійти",
         firstName: "Ім'я",
         lastName: "Прізвище",
-        email: "Емейл",
+        email: "Електронна пошта",
         password: "Пароль",
         signUp: "Зареєструватися"
     }

@@ -26,7 +26,7 @@ const LaptopList = () => {
     let navigate = useNavigate();
 
     const goBack = () => {
-        navigate('/products')
+        navigate('/products');
     };
 
     return (

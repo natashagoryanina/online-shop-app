@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 
-const SignInForm = ({resetErr}) => {
+const SignInForm = ({resetErr, signIn, language}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    let navigate = useNavigate();
 
     const onHandleChange = (e) => {
         resetErr();
@@ -13,14 +16,16 @@ const SignInForm = ({resetErr}) => {
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
-        //signIn({email, password});
+        signIn({email, password});
+        navigate('/account');
     };
+
 
     return (
         <div>
             <form onSubmit={onHandleSubmit}>
                 <label>
-                    Email
+                    {language.signIn.email}
                     <input
                         type='text'
                         name='email'
@@ -29,7 +34,7 @@ const SignInForm = ({resetErr}) => {
                     />
                 </label>
                 <label>
-                    Password 
+                    {language.signIn.password}
                     <input 
                         type="text" 
                         name='password'
@@ -40,7 +45,7 @@ const SignInForm = ({resetErr}) => {
                 <button
                     type='submit'
                 >
-                    Sign in
+                    {language.signIn.signIn}
                 </button>
             </form>
         </div>

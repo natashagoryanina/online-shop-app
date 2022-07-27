@@ -10,8 +10,22 @@ import {
 } from "./authActions";
 
 const authUserReducer = createReducer(null, {
-    [signUp]: (_, action) => action.payload,
-    [signIn]: (_, action) => action.payload,
+    [signUp]: (_, action) => ({email: action.payload.email}),
+    [signIn]: (_, action) => ({email: action.payload.email}),
+    [signOut]: () => null
+});
+
+const authTokensReducer = createReducer(null, {
+    [signUp]: (_, action) => ({
+        idToken: action.payload.idToken,
+        refreshToken: action.payload.refreshToken,
+        localId: action.payload.localId,
+    }),
+    [signIn]: (_, action) => ({
+        idToken: action.payload.idToken,
+        refreshToken: action.payload.refreshToken,
+        localId: action.payload.localId,
+    }),
     [signOut]: () => null
 });
 
@@ -26,6 +40,7 @@ const authErrorReducer = createReducer("", {
 
 const authReducer = combineReducers({
     user: authUserReducer,
+    tokens: authTokensReducer,
     loader: authLoaderReducer,
     error: authErrorReducer,
 });

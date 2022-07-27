@@ -32,7 +32,7 @@ export const mainRoutes = [
     },
     {
       name: "Account",
-      path: "/account/register",
+      path: "/account",
       component: RegisterPage,
       isPrivate: false,
     },

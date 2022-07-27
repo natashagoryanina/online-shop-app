@@ -47,7 +47,7 @@ const Francais = {
         signIn: "Se connecter"
     },
     signUp: {
-        title: "Create Account",
+        title: "Créer un compte",
         question: "Vous avez déjà un compte",
         signIn: "Se connecter",
         firstName: "Nom",

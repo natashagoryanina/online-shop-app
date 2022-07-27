@@ -8,6 +8,7 @@ import storage from 'redux-persist/lib/storage';
 const config = {
     key: 'user',
     storage: storage,
+    whitelist: ['user', 'tokens']
 };
 
 const rootReducer = combineReducers({

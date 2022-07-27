@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 
-const SignUpForm = ({resetErr, signUp}) => {
+const SignUpForm = ({resetErr, signUp, language}) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    let navigate = useNavigate();
 
     const onHandleChange = (e) => {
         resetErr();
@@ -17,14 +20,15 @@ const SignUpForm = ({resetErr, signUp}) => {
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
-        signUp({email, password});
+        signUp({firstName, lastName, email, password});
+        navigate('/account');
     };
 
     return (
         <div>
             <form onSubmit={onHandleSubmit}>
                     <label>
-                        First Name
+                        {language.signUp.firstName}
                         <input
                             type='text'
                             name='firstName'
@@ -33,7 +37,7 @@ const SignUpForm = ({resetErr, signUp}) => {
                         />
                     </label>
                     <label>
-                        Last Name
+                        {language.signUp.lastName}
                         <input
                             type='text'
                             name='lastName'
@@ -42,7 +46,7 @@ const SignUpForm = ({resetErr, signUp}) => {
                         />
                     </label>
                     <label>
-                        Email
+                        {language.signUp.email}
                         <input
                             type='text'
                             name='email'
@@ -51,7 +55,7 @@ const SignUpForm = ({resetErr, signUp}) => {
                         />
                     </label>
                     <label>
-                        Password 
+                        {language.signUp.password}
                         <input 
                             type="text" 
                             name='password'
@@ -62,7 +66,7 @@ const SignUpForm = ({resetErr, signUp}) => {
                     <button
                         type='submit'
                     >
-                        Sign up
+                        {language.signUp.signUp}
                     </button>
             </form>
         </div>
