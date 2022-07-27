@@ -1,5 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
+import { signOut } from "../auth/authActions";
 import { 
     addToFave, 
     removeFromFave,
@@ -11,15 +12,18 @@ import {
 const favouritesItemsReducer = createReducer([], {
     [addToFave]: (state, action) => [...state, action.payload],
     [removeFromFave]: (state, action) => state.filter(product => product.id !== action.payload),
+    [signOut]: () => [],
 });
 
 const favouritesLoaderReducer = createReducer(false, {
     [setLoader]: (state) => !state,
+    [signOut]: () => false,
 });
 
 const favouritesErrorReducer = createReducer("", {
     [setError]: (_, {payload}) => payload, 
     [resetError]: () => "",
+    [signOut]: () => ""
 });
 
 const favouritesReducer = combineReducers({

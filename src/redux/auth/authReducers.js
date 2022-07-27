@@ -31,11 +31,13 @@ const authTokensReducer = createReducer(null, {
 
 const authLoaderReducer = createReducer(false, {
     [setLoader]: (state) => !state,
+    [signOut]: () => false,
 });
 
 const authErrorReducer = createReducer("", {
     [setError]: (_, {payload}) => payload, 
     [resetError]: () => "",
+    [signOut]: () => "",
 });
 
 const authReducer = combineReducers({
