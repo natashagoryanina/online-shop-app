@@ -44,7 +44,10 @@ export const getProductsByCategory = async (category) => {
 export const signUpUser = async (usersData) => {
     try {
         const response = await axios.post(
-            SIGNUP_URL, usersData
+            SIGNUP_URL, { 
+                ...usersData,
+                returnSecureToken: true,
+            }
         );
         return response.data;
     } catch (error) {
@@ -65,14 +68,33 @@ export const signInUser = async (usersData) => {
 
 //! Favourites
 
-export const addFaveItem = async (item, localId) => {
+export const addFaveItem = async (item, localId, idToken) => {
+    console.log("item:", item, "localId:", localId, "idToken:", idToken);
     try {
         const response = await axios.post(
-            BASE_URL + `/favourites/${localId}.json`,
+            BASE_URL + `/${localId}/favourites.json?auth=${idToken}`,
             item
         );
-        console.log(response.data)
+        console.log(response.data);
         return response.data;
+    } catch (error) {
+        throw new Error(error.response.data.error.message);
+    }
+};
+
+export const getFavouriteItems = async (localId, idToken) => {
+    try {
+        const response = await axios.get(
+            BASE_URL + `/${localId}/favourites.json?auth=${idToken}`
+        );
+        if (response.data) {
+            const keys = Object.keys(response.data);
+            const favourites = keys.map((key) => ({
+                id: key,
+                ...response.data[key]
+            }));
+            return favourites;
+        };
     } catch (error) {
         throw new Error(error.response.data.error.message);
     }

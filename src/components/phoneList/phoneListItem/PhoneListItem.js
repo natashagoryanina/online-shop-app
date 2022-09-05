@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../App';
+import sprite from '../../../icons/items/sprite.svg';
 
-const PhoneListItem = ({phone, addProduct}) => {
+const PhoneListItem = ({phone, addProduct, addItemToFave}) => {
     const { language } = useContext(LanguageContext);
 
     const addProductToCart = () => addProduct(phone);
+    const addToFavourites = () => addItemToFave(phone);
 
     return (
         <li>
@@ -20,6 +22,11 @@ const PhoneListItem = ({phone, addProduct}) => {
             >
                 {language.productItem.addToCart}
             </button>
+            <div>
+                <svg>
+                    <use href={sprite + '#icon-heart'} onClick={addToFavourites}/>
+                </svg>
+            </div>
         </li>
     );
 };

@@ -27,15 +27,15 @@ const Main = () => {
                 <Route path='/admin'element={<AdminPage/>}/>
                 { !isAuth && (
                     <>
-                        <Route path='/account/register' element={<RegisterPage/>} exact/>
+                        <Route path='/account' element={<RegisterPage/>} exact/>
                         <Route path='/account/login' element={<LoginPage/>} exact/>
                     </>
                 )}
                 { isAuth && (
-                    <Route path='/account' element={<RegisteredUserPage/>}/>
+                    <Route path='/account' element={<RegisteredUserPage/>} exact/>
                 )}
                 <Route path='/favourites' element={<FavouritesPage/>}/>
-                <Route path="*" element={<HomePage/>}/>
+                <Route path='*' element={<HomePage/>}/>
             </Routes>
         </main>
     );

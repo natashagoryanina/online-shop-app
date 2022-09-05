@@ -25,7 +25,7 @@ const SignIn = () => {
              {error && <h3>{error}</h3>}
             <p>
                 {language.signIn.question}?
-                <a href='/account/register'>
+                <a href='/account'>
                     {language.signIn.signUp}!
                 </a>
             </p>

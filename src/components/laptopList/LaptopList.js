@@ -13,7 +13,6 @@ import LaptopListItem from './laptopListItem/LaptopListItem';
 
 const LaptopList = () => {
     const { language } = useContext(LanguageContext);
-
     const laptops = useSelector(laptopsSelector);
     const isLoading = useSelector(productsLoaderSelector);
     const dispatch = useDispatch();

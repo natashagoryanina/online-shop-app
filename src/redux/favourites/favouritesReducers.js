@@ -4,6 +4,7 @@ import { signOut } from "../auth/authActions";
 import { 
     addToFave, 
     removeFromFave,
+    setFavourites,
     setLoader,
     setError,
     resetError,
@@ -11,6 +12,7 @@ import {
 
 const favouritesItemsReducer = createReducer([], {
     [addToFave]: (state, action) => [...state, action.payload],
+    [setFavourites]: (_, action) => action.payload,
     [removeFromFave]: (state, action) => state.filter(product => product.id !== action.payload),
     [signOut]: () => [],
 });

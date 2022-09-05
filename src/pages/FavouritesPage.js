@@ -1,10 +1,11 @@
 import React from 'react';
+import Favourites from '../components/favourites/Favourites';
 import Section from '../components/Section';
 
 const FavouritesPage = () => {
     return (
         <Section>
-            <h1>Favourites</h1>
+            <Favourites/>
         </Section>
     );
 };

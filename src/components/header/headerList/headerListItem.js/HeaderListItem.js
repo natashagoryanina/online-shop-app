@@ -25,9 +25,9 @@ const HeaderListItem = ({
 
             {
                 !isPrivate && path === '/account' && !isAuth &&  (
-                    <li className='header-list_item' key={path + '/register'}>
+                    <li className='header-list_item' key={path}>
                         <NavLink
-                            to={path + '/register'} 
+                            to={path} 
                             className={({ isActive }) => (isActive ? "header-list_link-active" : "header-list_link")}
                         >
                             {language.navigation[name]}
