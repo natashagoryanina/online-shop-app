@@ -1,5 +1,10 @@
 import { addFaveItem, getFavouriteItems } from "../../services/api";
-import { addToFave, setError, setFavourites, setLoader } from "./favouritesActions";
+import { 
+    addToFave, 
+    setError, 
+    setFavourites, 
+    setLoader 
+} from "./favouritesActions";
 
 const addItemToFavouritesOperation = (item) => 
     async (dispatch, getState) => {

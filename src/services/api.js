@@ -58,7 +58,10 @@ export const signUpUser = async (usersData) => {
 export const signInUser = async (usersData) => {
     try {
         const response = await axios.post(
-            SIGNIN_URL, usersData
+            SIGNIN_URL, { 
+                ...usersData,
+                returnSecureToken: true,
+            }
         );
         return response.data;
     } catch (error) {
@@ -69,13 +72,11 @@ export const signInUser = async (usersData) => {
 //! Favourites
 
 export const addFaveItem = async (item, localId, idToken) => {
-    console.log("item:", item, "localId:", localId, "idToken:", idToken);
     try {
         const response = await axios.post(
             BASE_URL + `/${localId}/favourites.json?auth=${idToken}`,
             item
         );
-        console.log(response.data);
         return response.data;
     } catch (error) {
         throw new Error(error.response.data.error.message);
@@ -95,6 +96,17 @@ export const getFavouriteItems = async (localId, idToken) => {
             }));
             return favourites;
         };
+    } catch (error) {
+        throw new Error(error.response.data.error.message);
+    }
+};
+
+export const deleteFaveItem = async (id, localId, idToken) => {
+    try {
+        const response = await axios.delete(
+            BASE_URL + `/${localId}/favourites/${id}.json?auth=${idToken}`
+        )
+        return response.data;
     } catch (error) {
         throw new Error(error.response.data.error.message);
     }

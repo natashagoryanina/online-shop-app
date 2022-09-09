@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetError } from '../../../redux/auth/authActions';
 import { signUpOperation } from '../../../redux/auth/authOperations';
-import { authErrorSelector, authIsAuthSelector } from '../../../redux/auth/authSelectors';
+import { authErrorSelector } from '../../../redux/auth/authSelectors';
 import { LanguageContext } from '../../App';
 import SignUpForm from './signUpForm/SignUpForm';
 
@@ -10,9 +10,6 @@ const SignUp = () => {
     const { language } = useContext(LanguageContext);
     const dispatch = useDispatch();
     const error = useSelector(authErrorSelector);
-    const isAuth = useSelector(authIsAuthSelector);
-    console.log("isAuth", isAuth);
-    console.log("Sign up" , error);
 
     const resetErr = () => error && dispatch(resetError());
     const signUp = (usersData) => dispatch(signUpOperation(usersData));
@@ -24,7 +21,6 @@ const SignUp = () => {
                 resetErr={resetErr}
                 signUp={signUp}
                 language={language}
-                error={error}
             />
             {error && <h3>{error}</h3>}
             <p>

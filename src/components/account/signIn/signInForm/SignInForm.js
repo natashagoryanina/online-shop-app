@@ -17,9 +17,8 @@ const SignInForm = ({resetErr, signIn, language}) => {
     const onHandleSubmit = (e) => {
         e.preventDefault();
         signIn({email, password});
-        navigate('/account');
+        navigate('/account/login');
     };
-
 
     return (
         <div>

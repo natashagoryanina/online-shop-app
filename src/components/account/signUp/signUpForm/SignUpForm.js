@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 
-const SignUpForm = ({resetErr, signUp, language, error}) => {
+const SignUpForm = ({resetErr, signUp, language}) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -21,7 +21,6 @@ const SignUpForm = ({resetErr, signUp, language, error}) => {
     const onHandleSubmit = (e) => {
         e.preventDefault();
         signUp({firstName, lastName, email, password});
-        console.log(signUp({firstName, lastName, email, password}));
         navigate('/account');
     };
 

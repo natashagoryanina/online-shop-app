@@ -15,6 +15,7 @@ import RegisteredUserPage from '../../pages/RegisteredUserPage';
 
 const Main = () => {
     const isAuth = useSelector(authIsAuthSelector);
+    // const Error = useSelector(authErrorSelector);
 
     return (
         <main>
@@ -32,9 +33,12 @@ const Main = () => {
                     </>
                 )}
                 { isAuth && (
-                    <Route path='/account' element={<RegisteredUserPage/>} exact/>
+                    <>
+                        <Route path='/account' element={<RegisteredUserPage/>} exact/>
+                        <Route path='/account/login' element={<RegisteredUserPage/>} exact/>
+                        <Route path='/favourites' element={<FavouritesPage/>}/>
+                    </>
                 )}
-                <Route path='/favourites' element={<FavouritesPage/>}/>
                 <Route path='*' element={<HomePage/>}/>
             </Routes>
         </main>
